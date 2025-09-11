@@ -3,6 +3,7 @@ package Data;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
@@ -43,7 +44,15 @@ public class Main {
         //pegando dados isolados time
         LocalDateTime d11 = LocalDateTime.of(2022, 07, 21, 13,00);
         System.out.println(d11);
-
-
+        //formatado custumizado como queremos
+        DateTimeFormatter fmt10 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.println(d04.format(fmt10));
+        System.out.println(fmt10.format(d04));
+        //formatado custumizado como queremos Local
+        DateTimeFormatter fmt11 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:MM");
+        System.out.println(d05.format(fmt11));
+        //formatado custumizado como queremos Global
+        DateTimeFormatter fmt13 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:MM").withZone(ZoneId.systemDefault());
+        System.out.println(fmt13.format(d06));
     }
 }
